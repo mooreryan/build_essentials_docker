@@ -1,0 +1,9 @@
+#!/bin/bash
+
+img=build_essentials
+tag="$1"
+
+docker build -t "$img:$tag" .
+docker tag "$img:$tag" "mooreryan/$img:$tag"
+docker login
+docker push "mooreryan/$img:$tag"
